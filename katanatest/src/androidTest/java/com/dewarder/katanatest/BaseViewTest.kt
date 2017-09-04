@@ -1,6 +1,5 @@
 package com.dewarder.katanatest
 
-import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import android.widget.LinearLayout
@@ -45,6 +44,39 @@ abstract class BaseViewTest {
     lateinit var viewsOptionalExistCorrect: KProperty<List<TextView?>>
     lateinit var viewsOptionalExistIncorrect: KProperty<List<TextView?>>
     lateinit var viewsOptionalExistFirstViewSecondTextViewCorrect: KProperty<List<View?>>
+
+    abstract fun getTestableView(): TestableView
+
+    @Before
+    fun init() {
+        getTestableView().let {
+            component = it
+
+            viewRequiredExist = it::viewRequiredExist
+            viewRequiredAbsent = it::viewRequiredAbsent
+            viewOptionalExist = it::viewOptionalExist
+            viewOptionalAbsent = it::viewOptionalAbsent
+
+            textViewRequiredCorrect = it::textViewRequiredCorrect
+            textViewRequiredIncorrect = it::textViewRequiredIncorrect
+            textViewOptionalCorrect = it::textViewOptionalCorrect
+            textViewOptionalIncorrect = it::textViewOptionalIncorrect
+
+            viewsRequiredExist = it::viewsRequiredExist
+            viewsRequiredAbsent = it::viewsRequiredAbsent
+            viewsOptionalExist = it::viewsOptionalExist
+            viewsOptionalAbsent = it::viewsOptionalAbsent
+            viewsRequiredFirstExistSecondAbsent = it::viewsRequiredFirstExistSecondAbsent
+            viewsOptionalFirstExistSecondAbsent = it::viewsOptionalFirstExistSecondAbsent
+
+            viewsRequiredExistCorrect = it::viewsRequiredExistCorrect
+            viewsRequiredExistIncorrect = it::viewsRequiredExistIncorrect
+            viewsRequiredExistFirstViewSecondTextViewCorrect = it::viewsRequiredExistFirstViewSecondTextViewCorrect
+            viewsOptionalExistCorrect = it::viewsOptionalExistCorrect
+            viewsOptionalExistIncorrect = it::viewsOptionalExistIncorrect
+            viewsOptionalExistFirstViewSecondTextViewCorrect = it::viewsOptionalExistFirstViewSecondTextViewCorrect
+        }
+    }
 
     @Test
     fun testOneRequiredViewExist() {

@@ -5,16 +5,16 @@ import android.support.test.rule.ActivityTestRule
 import android.support.v7.app.AppCompatActivity
 import org.junit.Rule
 
-class ViewViewTest : BaseViewTest() {
+class DialogViewTest : BaseViewTest() {
 
     class Activity : AppCompatActivity() {
 
-        lateinit var view: TestViewView
+        lateinit var dialog: TestViewDialog
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            view = TestViewView(this)
-            setContentView(view)
+            dialog = TestViewDialog(this)
+            dialog.show()
         }
     }
 
@@ -22,6 +22,6 @@ class ViewViewTest : BaseViewTest() {
     val activityRule = ActivityTestRule<Activity>(Activity::class.java)
 
     override fun getTestableView(): TestableView {
-        return activityRule.activity.view
+        return activityRule.activity.dialog
     }
 }

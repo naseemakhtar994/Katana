@@ -18,6 +18,14 @@
         </activity>
 
         <activity android:name="com.dewarder.katanatest.ViewViewTest$Activity"/>
+
+        <activity android:name="com.dewarder.katanatest.FragmentViewTest$Activity"/>
+
+        <activity android:name="com.dewarder.katanatest.DialogViewTest$Activity"/>
+
+        <activity android:name="com.dewarder.katanatest.SupportFragmentViewTest$Activity"/>
+
+        <activity android:name="com.dewarder.katanatest.ViewFinderProviderViewTest$Activity"/>
     </application>
 
 </manifest>

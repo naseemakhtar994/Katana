@@ -5,15 +5,16 @@ import android.support.test.rule.ActivityTestRule
 import android.support.v7.app.AppCompatActivity
 import org.junit.Rule
 
-class ViewViewTest : BaseViewTest() {
+class ViewFinderProviderViewTest : BaseViewTest() {
 
     class Activity : AppCompatActivity() {
 
-        lateinit var view: TestViewView
+        lateinit var viewFinderProvider: TestViewViewFinderProvider
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            view = TestViewView(this)
+            val view = TestViewView(this)
+            viewFinderProvider = TestViewViewFinderProvider(view)
             setContentView(view)
         }
     }
@@ -22,6 +23,6 @@ class ViewViewTest : BaseViewTest() {
     val activityRule = ActivityTestRule<Activity>(Activity::class.java)
 
     override fun getTestableView(): TestableView {
-        return activityRule.activity.view
+        return activityRule.activity.viewFinderProvider
     }
 }

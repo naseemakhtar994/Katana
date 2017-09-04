@@ -1,16 +1,11 @@
 package com.dewarder.katanatest
 
-import android.content.Context
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.dewarder.katana.view
-import com.dewarder.katana.viewOptional
-import com.dewarder.katana.views
-import com.dewarder.katana.viewsOptional
+import com.dewarder.katana.*
 
-class TestViewView : FrameLayout, TestableView {
+class TestViewViewFinderProvider(val view: View) : ViewFinderProvider, TestableView {
 
     override val viewRequiredExist: View by view(R.id.test_view1)
     override val viewRequiredAbsent: View by view(NO_VIEW1)
@@ -36,7 +31,7 @@ class TestViewView : FrameLayout, TestableView {
     override val viewsOptionalExistIncorrect: List<TextView?> by viewsOptional(R.id.test_text_view1, R.id.test_view1)
     override val viewsOptionalExistFirstViewSecondTextViewCorrect: List<View?> by viewsOptional(R.id.test_view1, R.id.test_text_view1)
 
-    constructor(context: Context) : super(context) {
-        View.inflate(context, R.layout.activity_test_view, this)
+    override fun provideViewFinder(): ViewFinder<View> {
+        return view::findViewById
     }
 }
