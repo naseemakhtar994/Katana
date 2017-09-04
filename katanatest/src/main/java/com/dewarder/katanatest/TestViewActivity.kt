@@ -10,7 +10,7 @@ import com.dewarder.katana.viewOptional
 import com.dewarder.katana.views
 import com.dewarder.katana.viewsOptional
 
-class TestActivity : AppCompatActivity() {
+class TestViewActivity : AppCompatActivity() {
 
     val viewRequiredExist: View by view(R.id.test_view1)
     val viewRequiredAbsent: View by view(NO_VIEW1)
@@ -29,9 +29,16 @@ class TestActivity : AppCompatActivity() {
     val viewsRequiredFirstExistSecondAbsent: List<View> by views(R.id.test_view1, NO_VIEW1)
     val viewsOptionalFirstExistSecondAbsent: List<View?> by viewsOptional(R.id.test_view1, NO_VIEW1)
 
+    val viewsRequiredExistCorrect: List<TextView> by views(R.id.test_text_view1, R.id.test_text_view2)
+    val viewsRequiredExistIncorrect: List<TextView> by views(R.id.test_text_view1, R.id.test_view1)
+    val viewsRequiredExistFirstViewSecondTextViewCorrect: List<View> by views(R.id.test_view1, R.id.test_text_view1)
+    val viewsOptionalExistCorrect: List<TextView?> by viewsOptional(R.id.test_text_view1, R.id.test_text_view2)
+    val viewsOptionalExistIncorrect: List<TextView?> by viewsOptional(R.id.test_text_view1, R.id.test_view1)
+    val viewsOptionalExistFirstViewSecondTextViewCorrect: List<View?> by viewsOptional(R.id.test_view1, R.id.test_text_view1)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_test_view)
     }
 
     companion object {

@@ -2,6 +2,7 @@ package com.dewarder.katanatest
 
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import org.junit.Assert.*
@@ -14,7 +15,7 @@ import org.junit.runner.RunWith
 class ActivityViewTest {
 
     @get:Rule
-    val activityRule = ActivityTestRule<TestActivity>(TestActivity::class.java)
+    val activityRule = ActivityTestRule<TestViewActivity>(TestViewActivity::class.java)
 
     @get:Rule
     val exceptionRule = ExpectedException.none();
@@ -72,9 +73,9 @@ class ActivityViewTest {
     @Test
     fun testManyRequiredViewAllAbsent() {
         exceptionRule.expect(IllegalStateException::class.java)
-        exceptionRule.expectMessage(TestActivity::class.java.simpleName)
-        exceptionRule.expectMessage(TestActivity.NO_VIEW1.toString())
-        exceptionRule.expectMessage(TestActivity.NO_VIEW2.toString())
+        exceptionRule.expectMessage(TestViewActivity::class.java.simpleName)
+        exceptionRule.expectMessage(TestViewActivity.NO_VIEW1.toString())
+        exceptionRule.expectMessage(TestViewActivity.NO_VIEW2.toString())
         exceptionRule.expectMessage(activityRule.activity::viewsRequiredAbsent.name)
         activityRule.activity.viewsRequiredAbsent
     }
@@ -96,8 +97,8 @@ class ActivityViewTest {
     @Test
     fun testManyRequiredFirstExistSecondAbsent() {
         exceptionRule.expect(IllegalStateException::class.java)
-        exceptionRule.expectMessage(TestActivity::class.java.simpleName)
-        exceptionRule.expectMessage(TestActivity.NO_VIEW1.toString())
+        exceptionRule.expectMessage(TestViewActivity::class.java.simpleName)
+        exceptionRule.expectMessage(TestViewActivity.NO_VIEW1.toString())
         exceptionRule.expectMessage(activityRule.activity::viewsRequiredFirstExistSecondAbsent.name)
         activityRule.activity.viewsRequiredFirstExistSecondAbsent
     }
@@ -108,5 +109,26 @@ class ActivityViewTest {
         assertEquals(viewList.size, 2)
         assertNotNull(viewList.first())
         assertNull(viewList.last())
+    }
+
+    @Test
+    fun testManyRequiredAllExistAndCorrectClass() {
+        val viewList = activityRule.activity.viewsRequiredExistCorrect
+        assertEquals(viewList.size, 2)
+        assertEquals(viewList.filterIsInstance<TextView>().size, 2)
+    }
+
+    @Test
+    fun testManyRequiredAllExistAndIncorrectClass() {
+        exceptionRule.expect(ClassCastException::class.java)
+        activityRule.activity.viewsRequiredExistIncorrect
+    }
+
+    @Test
+    fun testManyRequiredAllDifferentClassCorrect() {
+        val viewList = activityRule.activity.viewsOptionalExistFirstViewSecondTextViewCorrect
+        assertEquals(viewList.size, 2)
+        assertTrue(viewList.first() is View)
+        assertTrue(viewList.last() is TextView)
     }
 }
