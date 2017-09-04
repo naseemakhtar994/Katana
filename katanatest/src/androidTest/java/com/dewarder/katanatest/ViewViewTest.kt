@@ -1,17 +1,30 @@
 package com.dewarder.katanatest
 
+import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
+import android.support.v7.app.AppCompatActivity
 import org.junit.Before
 import org.junit.Rule
 
-class ActivityViewTest : BaseViewTest() {
+class ViewViewTest : BaseViewTest() {
+
+    class Activity : AppCompatActivity() {
+
+        lateinit var view: TestViewView
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            view = TestViewView(this)
+            setContentView(view)
+        }
+    }
 
     @get:Rule
-    val activityRule = ActivityTestRule<TestViewActivity>(TestViewActivity::class.java)
+    val activityRule = ActivityTestRule<Activity>(Activity::class.java)
 
     @Before
     fun init() {
-        activityRule.activity.let {
+        activityRule.activity.view.let {
             component = it
 
             viewRequiredExist = it::viewRequiredExist

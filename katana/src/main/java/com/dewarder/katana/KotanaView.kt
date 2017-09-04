@@ -127,7 +127,7 @@ private inline fun <V : View> requiredViews(component: Any,
 
     return Required { property ->
         val viewProvider = finder(property)
-        ids.map { id -> viewProvider.invoke(id) as? V ?: findAbsentViewsAndThrow(component, viewProvider, ids, property) }
+        ids.map { id -> viewProvider.invoke(id) ?: findAbsentViewsAndThrow(component, viewProvider, ids, property) }
     }
 }
 
@@ -135,7 +135,7 @@ private inline fun <V : View> optionalViews(crossinline finder: (KProperty<*>) -
                                             @IdRes ids: IntArray): ReadOnlyProperty<Any, List<V?>> {
     return Required { property ->
         val viewProvider = finder(property)
-        ids.map { id -> viewProvider.invoke(id) as? V }
+        ids.map { id -> viewProvider.invoke(id) }
     }
 }
 
