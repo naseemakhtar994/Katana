@@ -1,8 +1,12 @@
-package com.dewarder.katanatest
+package com.dewarder.katanatest.view
 
 import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.support.v7.app.AppCompatActivity
+import com.dewarder.katanatest.view.BaseViewTest
+import com.dewarder.katanatest.view.TestViewView
+import com.dewarder.katanatest.view.TestViewViewFinderProvider
+import com.dewarder.katanatest.view.TestableView
 import org.junit.Rule
 
 class ViewFinderProviderViewTest : BaseViewTest() {

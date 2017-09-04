@@ -1,4 +1,4 @@
-package com.dewarder.katanatest
+package com.dewarder.katanatest.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +9,10 @@ import com.dewarder.katana.view
 import com.dewarder.katana.viewOptional
 import com.dewarder.katana.views
 import com.dewarder.katana.viewsOptional
+import com.dewarder.katanatest.NO_VIEW1
+import com.dewarder.katanatest.NO_VIEW2
+import com.dewarder.katanatest.R
+import com.dewarder.katanatest.view.TestableView
 
 class TestViewActivity : AppCompatActivity(), TestableView {
 

@@ -1,18 +1,20 @@
-package com.dewarder.katanatest
+package com.dewarder.katanatest.view
 
-import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.view.LayoutInflater
+import android.content.Context
 import android.view.View
-import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.dewarder.katana.view
 import com.dewarder.katana.viewOptional
 import com.dewarder.katana.views
 import com.dewarder.katana.viewsOptional
+import com.dewarder.katanatest.NO_VIEW1
+import com.dewarder.katanatest.NO_VIEW2
+import com.dewarder.katanatest.R
+import com.dewarder.katanatest.view.TestableView
 
-class TestViewSupportFragment : Fragment(), TestableView {
+class TestViewView : FrameLayout, TestableView {
 
     override val viewRequiredExist: View by view(R.id.test_view1)
     override val viewRequiredAbsent: View by view(NO_VIEW1)
@@ -38,8 +40,7 @@ class TestViewSupportFragment : Fragment(), TestableView {
     override val viewsOptionalExistIncorrect: List<TextView?> by viewsOptional(R.id.test_text_view1, R.id.test_view1)
     override val viewsOptionalExistFirstViewSecondTextViewCorrect: List<View?> by viewsOptional(R.id.test_view1, R.id.test_text_view1)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.activity_test_view, container, false)
+    constructor(context: Context) : super(context) {
+        View.inflate(context, R.layout.activity_test_view, this)
     }
-
 }

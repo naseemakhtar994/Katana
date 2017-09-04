@@ -9,23 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.dewarder.katanatest.TestViewActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <!--View-->
+        <activity android:name="com.dewarder.katanatest.view.TestViewActivity"/>
+        <activity android:name="com.dewarder.katanatest.view.ViewViewTest$Activity"/>
+        <activity android:name="com.dewarder.katanatest.view.FragmentViewTest$Activity"/>
+        <activity android:name="com.dewarder.katanatest.view.DialogViewTest$Activity"/>
+        <activity android:name="com.dewarder.katanatest.view.SupportFragmentViewTest$Activity"/>
+        <activity android:name="com.dewarder.katanatest.view.ViewFinderProviderViewTest$Activity"/>
 
-        <activity android:name="com.dewarder.katanatest.ViewViewTest$Activity"/>
-
-        <activity android:name="com.dewarder.katanatest.FragmentViewTest$Activity"/>
-
-        <activity android:name="com.dewarder.katanatest.DialogViewTest$Activity"/>
-
-        <activity android:name="com.dewarder.katanatest.SupportFragmentViewTest$Activity"/>
-
-        <activity android:name="com.dewarder.katanatest.ViewFinderProviderViewTest$Activity"/>
+        <!--Dimen-->
+        <activity android:name="com.dewarder.katanatest.dimen.TestDimenActivity"/>
     </application>
 
 </manifest>

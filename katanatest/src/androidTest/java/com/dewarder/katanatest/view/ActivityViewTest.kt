@@ -1,6 +1,9 @@
-package com.dewarder.katanatest
+package com.dewarder.katanatest.view
 
 import android.support.test.rule.ActivityTestRule
+import com.dewarder.katanatest.view.BaseViewTest
+import com.dewarder.katanatest.view.TestViewActivity
+import com.dewarder.katanatest.view.TestableView
 import org.junit.Rule
 
 class ActivityViewTest : BaseViewTest() {

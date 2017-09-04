@@ -1,4 +1,4 @@
-package com.dewarder.katanatest
+package com.dewarder.katanatest.view
 
 import android.view.View
 import android.widget.LinearLayout

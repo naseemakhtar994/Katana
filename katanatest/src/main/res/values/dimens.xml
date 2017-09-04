@@ -1,0 +1,5 @@
+<resources>
+
+    <dimen name="test_dimen_8dp">8dp</dimen>
+
+</resources>

@@ -1,9 +1,13 @@
-package com.dewarder.katanatest
+package com.dewarder.katanatest.view
 
 import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.dewarder.katanatest.NO_VIEW1
+import com.dewarder.katanatest.NO_VIEW2
+import com.dewarder.katanatest.get
+import com.dewarder.katanatest.view.TestableView
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
@@ -188,18 +192,5 @@ abstract class BaseViewTest {
         assertEquals(viewList.size, 2)
         assertTrue(viewList.first() is View)
         assertTrue(viewList.last() is TextView)
-    }
-
-    private fun <R> KProperty<R>.get(): R {
-        return try {
-            call()
-        } catch (e: InvocationTargetException) {
-            val cause = e.cause
-            if (cause != null) {
-                throw cause
-            } else {
-                throw e
-            }
-        }
     }
 }

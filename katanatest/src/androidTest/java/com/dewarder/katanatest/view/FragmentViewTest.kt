@@ -1,12 +1,16 @@
-package com.dewarder.katanatest
+package com.dewarder.katanatest.view
 
 import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.support.v7.app.AppCompatActivity
 import android.widget.FrameLayout
+import com.dewarder.katanatest.R
+import com.dewarder.katanatest.view.BaseViewTest
+import com.dewarder.katanatest.view.TestViewFragment
+import com.dewarder.katanatest.view.TestableView
 import org.junit.Rule
 
-class SupportFragmentViewTest : BaseViewTest() {
+class FragmentViewTest : BaseViewTest() {
 
     class Activity : AppCompatActivity() {
 
