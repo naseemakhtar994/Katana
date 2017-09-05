@@ -1,5 +1,7 @@
 <resources>
 
+    <dimen name="test_dimen_8px">8px</dimen>
     <dimen name="test_dimen_8dp">8dp</dimen>
+    <dimen name="test_dimen_8sp">8sp</dimen>
 
 </resources>

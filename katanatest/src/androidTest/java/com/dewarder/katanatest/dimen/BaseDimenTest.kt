@@ -2,8 +2,7 @@ package com.dewarder.katanatest.dimen
 
 import android.content.res.Resources
 import com.dewarder.katanatest.get
-import org.junit.Assert.assertNotNull
-import org.junit.Assert.assertNull
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -15,12 +14,17 @@ abstract class BaseDimenTest {
     @get:Rule
     val exceptionRule = ExpectedException.none();
 
-    lateinit var component: Any
+    private lateinit var dimenRequiredExist: KProperty<Float>
+    private lateinit var dimenRequiredAbsent: KProperty<Float>
+    private lateinit var dimenOptionalExist: KProperty<Float?>
+    private lateinit var dimenOptionalAbsent: KProperty<Float?>
 
-    lateinit var dimenRequiredExist: KProperty<Float>
-    lateinit var dimenRequiredAbsent: KProperty<Float>
-    lateinit var dimenOptionalExist: KProperty<Float?>
-    lateinit var dimenOptionalAbsent: KProperty<Float?>
+    private lateinit var dimenRequiredExistPx: KProperty<Float>
+    private lateinit var dimenRequiredExistDp: KProperty<Float>
+    private lateinit var dimenRequiredExistSp: KProperty<Float>
+    private lateinit var dimenOptionalExistPx: KProperty<Float?>
+    private lateinit var dimenOptionalExistDp: KProperty<Float?>
+    private lateinit var dimenOptionalExistSp: KProperty<Float?>
 
     abstract fun getTestableDimen(): TestableDimen
 
@@ -31,6 +35,13 @@ abstract class BaseDimenTest {
             dimenRequiredAbsent = it::dimenRequiredAbsent
             dimenOptionalExist = it::dimenOptionalExist
             dimenOptionalAbsent = it::dimenOptionalAbsent
+
+            dimenRequiredExistPx = it::dimenRequiredExistPx
+            dimenRequiredExistDp = it::dimenRequiredExistDp
+            dimenRequiredExistSp = it::dimenRequiredExistSp
+            dimenOptionalExistPx = it::dimenOptionalExistPx
+            dimenOptionalExistDp = it::dimenOptionalExistDp
+            dimenOptionalExistSp = it::dimenOptionalExistSp
         }
     }
 
@@ -54,4 +65,24 @@ abstract class BaseDimenTest {
     fun testOneOptionalDimenAbsent() {
         assertNull(dimenOptionalAbsent.get())
     }
+
+    @Test
+    fun testOneRequiredDimenExistCorrectValues() {
+        assertEquals(dimenRequiredExistPx.get(), 8f)
+        assertEquals(dimenRequiredExistDp.get(), 8f)
+        assertEquals(dimenRequiredExistSp.get(), 8f)
+    }
+
+    @Test
+    fun testOneOptionalDimenExistCorrectValues() {
+        assertNotNull(dimenRequiredExistPx.get())
+        assertEquals(dimenRequiredExistPx.get(), 8f)
+
+        assertNotNull(dimenRequiredExistDp.get())
+        assertEquals(dimenRequiredExistDp.get(), 8f)
+
+        assertNotNull(dimenRequiredExistSp.get())
+        assertEquals(dimenRequiredExistSp.get(), 8f)
+    }
+
 }

@@ -7,14 +7,12 @@ import android.widget.TextView
 import com.dewarder.katanatest.NO_VIEW1
 import com.dewarder.katanatest.NO_VIEW2
 import com.dewarder.katanatest.get
-import com.dewarder.katanatest.view.TestableView
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
 import org.junit.runner.RunWith
-import java.lang.reflect.InvocationTargetException
 import kotlin.reflect.KProperty
 
 @RunWith(AndroidJUnit4::class)
@@ -23,31 +21,31 @@ abstract class BaseViewTest {
     @get:Rule
     val exceptionRule = ExpectedException.none();
 
-    lateinit var component: Any
+    private lateinit var component: Any
 
-    lateinit var viewRequiredExist: KProperty<View>
-    lateinit var viewRequiredAbsent: KProperty<View>
-    lateinit var viewOptionalExist: KProperty<View?>
-    lateinit var viewOptionalAbsent: KProperty<View?>
+    private lateinit var viewRequiredExist: KProperty<View>
+    private lateinit var viewRequiredAbsent: KProperty<View>
+    private lateinit var viewOptionalExist: KProperty<View?>
+    private lateinit var viewOptionalAbsent: KProperty<View?>
 
-    lateinit var textViewRequiredCorrect: KProperty<TextView>
-    lateinit var textViewRequiredIncorrect: KProperty<LinearLayout>
-    lateinit var textViewOptionalCorrect: KProperty<TextView?>
-    lateinit var textViewOptionalIncorrect: KProperty<LinearLayout?>
+    private lateinit var textViewRequiredCorrect: KProperty<TextView>
+    private lateinit var textViewRequiredIncorrect: KProperty<LinearLayout>
+    private lateinit var textViewOptionalCorrect: KProperty<TextView?>
+    private lateinit var textViewOptionalIncorrect: KProperty<LinearLayout?>
 
-    lateinit var viewsRequiredExist: KProperty<List<View>>
-    lateinit var viewsRequiredAbsent: KProperty<List<View>>
-    lateinit var viewsOptionalExist: KProperty<List<View?>>
-    lateinit var viewsOptionalAbsent: KProperty<List<View?>>
-    lateinit var viewsRequiredFirstExistSecondAbsent: KProperty<List<View>>
-    lateinit var viewsOptionalFirstExistSecondAbsent: KProperty<List<View?>>
+    private lateinit var viewsRequiredExist: KProperty<List<View>>
+    private lateinit var viewsRequiredAbsent: KProperty<List<View>>
+    private lateinit var viewsOptionalExist: KProperty<List<View?>>
+    private lateinit var viewsOptionalAbsent: KProperty<List<View?>>
+    private lateinit var viewsRequiredFirstExistSecondAbsent: KProperty<List<View>>
+    private lateinit var viewsOptionalFirstExistSecondAbsent: KProperty<List<View?>>
 
-    lateinit var viewsRequiredExistCorrect: KProperty<List<TextView>>
-    lateinit var viewsRequiredExistIncorrect: KProperty<List<TextView>>
-    lateinit var viewsRequiredExistFirstViewSecondTextViewCorrect: KProperty<List<View>>
-    lateinit var viewsOptionalExistCorrect: KProperty<List<TextView?>>
-    lateinit var viewsOptionalExistIncorrect: KProperty<List<TextView?>>
-    lateinit var viewsOptionalExistFirstViewSecondTextViewCorrect: KProperty<List<View?>>
+    private lateinit var viewsRequiredExistCorrect: KProperty<List<TextView>>
+    private lateinit var viewsRequiredExistIncorrect: KProperty<List<TextView>>
+    private lateinit var viewsRequiredExistFirstViewSecondTextViewCorrect: KProperty<List<View>>
+    private lateinit var viewsOptionalExistCorrect: KProperty<List<TextView?>>
+    private lateinit var viewsOptionalExistIncorrect: KProperty<List<TextView?>>
+    private lateinit var viewsOptionalExistFirstViewSecondTextViewCorrect: KProperty<List<View?>>
 
     abstract fun getTestableView(): TestableView
 
@@ -188,6 +186,27 @@ abstract class BaseViewTest {
 
     @Test
     fun testManyRequiredAllDifferentClassCorrect() {
+        val viewList = viewsRequiredExistFirstViewSecondTextViewCorrect.get()
+        assertEquals(viewList.size, 2)
+        assertTrue(viewList.first() is View)
+        assertTrue(viewList.last() is TextView)
+    }
+
+    @Test
+    fun testManyOptionalAllExistAndCorrectClass() {
+        val viewList = viewsOptionalExistCorrect.get()
+        assertEquals(viewList.size, 2)
+        assertEquals(viewList.filterIsInstance<TextView>().size, 2)
+    }
+
+    @Test
+    fun testManyOptionalAllExistAndIncorrectClass() {
+        exceptionRule.expect(ClassCastException::class.java)
+        viewsOptionalExistIncorrect.get()
+    }
+
+    @Test
+    fun testManyOptionalAllDifferentClassCorrect() {
         val viewList = viewsOptionalExistFirstViewSecondTextViewCorrect.get()
         assertEquals(viewList.size, 2)
         assertTrue(viewList.first() is View)

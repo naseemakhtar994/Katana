@@ -6,4 +6,11 @@ interface TestableDimen {
     val dimenRequiredAbsent: Float
     val dimenOptionalExist: Float?
     val dimenOptionalAbsent: Float?
+
+    val dimenRequiredExistPx: Float
+    val dimenRequiredExistDp: Float
+    val dimenRequiredExistSp: Float
+    val dimenOptionalExistPx: Float?
+    val dimenOptionalExistDp: Float?
+    val dimenOptionalExistSp: Float?
 }
