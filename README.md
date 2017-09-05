@@ -29,10 +29,10 @@ val animationDuration by integer(R.integer.fade_in_animation_duration)
 
 ### Why?
 - Clearer to understand - no split between variable declaration and assignment
-- Immutability - once resource assigned it will be same all time
-- Laziness - resource initialized when it accessed first time
-- No boilerplate code - forgot about `findViewById as Something` and `ContextCompat.getDrawable`
-- No autogeneration of code - no annotation processing, no a lot generated classes
+- Immutability - once resource assigned it will be same all time. Bye-bye `latinit var`
+- Laziness - resource initialized when it accessed first tim
+- No boilerplate code - forget about `findViewById as Something` and `ContextCompat.getDrawable`
+- No autogeneration of code - no annotation processing, no plugins, no a lot of generated classes
 
 ### What?
 
