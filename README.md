@@ -2,6 +2,16 @@
 
 Binds views and resources easily. Really easily. **Everywhere**.
 
+#### Dependency
+
+To use add library as dependency to your build.gradle
+
+```
+compile 'com.dewarder:katana:1.0.0'
+```
+
+#### Example
+
 ```kotlin
 //views
 val myBeutyView: BeautyView by view(R.id.buety_vieww)
@@ -29,8 +39,8 @@ val animationDuration by integer(R.integer.fade_in_animation_duration)
 
 ### Why?
 - Clearer to understand - no split between variable declaration and assignment
-- Immutability - once resource assigned it will be same all time. Bye-bye `latinit var`
-- Laziness - resource initialized when it accessed first tim
+- Immutability - once resource assigned it will be same all time. Bye-bye `lateinit var`
+- Laziness - resource initialized when it accessed first time
 - No boilerplate code - forget about `findViewById as Something` and `ContextCompat.getDrawable`
 - No autogeneration of code - no annotation processing, no plugins, no a lot of generated classes
 

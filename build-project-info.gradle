@@ -1,0 +1,16 @@
+import groovy.json.JsonSlurper
+
+def projectInfo = file("${rootProject.projectDir}/project-info.json")
+def properties = new JsonSlurper().parseText(projectInfo.text)
+
+ext {
+    artifactName = properties.name
+    artifactVersion = properties.version
+    versionDescription = properties.description
+    siteUrl = properties.siteUrl
+    gitUrl = properties.gitUrl
+
+    developerId = properties.developer.id
+    developerName = properties.developer.name
+    developerEmail = properties.developer.email
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Katana",
+  "version": "1.0.0",
+  "description": "",
+  "siteUrl": "https://github.com/dewarder/Katana",
+  "gitUrl": "https://github.com/dewarder/Katana.git",
+  "developer": {
+    "id": "dewarder",
+    "name": "Artem Glugovsky",
+    "email": "dewarder@gmail.com"
+  }
+}
