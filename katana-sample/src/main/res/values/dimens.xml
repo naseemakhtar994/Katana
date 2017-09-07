@@ -1,0 +1,8 @@
+<resources>
+
+    <dimen name="element_container_size_start">40dp</dimen>
+    <dimen name="element_container_size_end">120dp</dimen>
+
+    <dimen name="element_label_text_size_start">12sp</dimen>
+    <dimen name="element_label_text_size_end">20sp</dimen>
+</resources>
