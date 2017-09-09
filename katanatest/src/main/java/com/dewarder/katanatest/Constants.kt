@@ -21,3 +21,6 @@ const val NO_VIEW2 = 1
 
 const val NO_DIMEN1 = 0
 const val NO_DIMEN2 = 1
+
+const val NO_INTEGER1 = 0
+const val NO_INTEGER2 = 1

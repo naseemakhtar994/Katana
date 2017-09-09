@@ -29,4 +29,17 @@ interface TestableDimen {
     val dimenOptionalExistPx: Float?
     val dimenOptionalExistDp: Float?
     val dimenOptionalExistSp: Float?
+
+    val dimensRequiredAllExist: List<Float>
+    val dimensRequiredAllAbsent: List<Float>
+    val dimensOptionalAllExist: List<Float?>
+    val dimensOptionalAllAbsent: List<Float?>
+    val dimensRequiredFirstExistSecondAbsent: List<Float>
+    val dimensOptionalFirstExistSecondAbsent: List<Float?>
+
+    val dimensRequiredExistPxDpSpAllPx: List<Float>
+    val dimensOptionalExistPxDpSpAllPx: List<Float?>
+    val dimensRequiredExistPxDpSpAllDp: List<Float>
+    val dimensOptionalExistPxDpSpAllDp: List<Float?>
+
 }

@@ -1,5 +1,7 @@
 # Katana
 
+[![Build Status](https://travis-ci.org/dewarder/Katana.svg?branch=master)](https://travis-ci.org/dewarder/Katana)
+
 Binds views and resources easily. Really easily. **Everywhere**.
 
 #### Dependency

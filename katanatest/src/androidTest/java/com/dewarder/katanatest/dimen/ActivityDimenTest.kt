@@ -16,6 +16,7 @@
 
 package com.dewarder.katanatest.dimen
 
+import android.content.res.Resources
 import android.support.test.rule.ActivityTestRule
 import org.junit.Rule
 
@@ -24,7 +25,7 @@ class ActivityDimenTest : BaseDimenTest() {
     @get:Rule
     val activityRule = ActivityTestRule<TestDimenActivity>(TestDimenActivity::class.java)
 
-    override fun getTestableDimen(): TestableDimen {
-        return activityRule.activity
-    }
+    override fun getTestableDimen(): TestableDimen = activityRule.activity
+
+    override fun getResources(): Resources = activityRule.activity.resources
 }

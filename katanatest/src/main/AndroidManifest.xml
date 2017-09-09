@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
 
         <!--View-->
+        <activity android:name="com.dewarder.katanatest.TestActivity"/>
         <activity android:name="com.dewarder.katanatest.view.TestViewActivity"/>
         <activity android:name="com.dewarder.katanatest.view.ViewViewTest$Activity"/>
         <activity android:name="com.dewarder.katanatest.view.FragmentViewTest$Activity"/>
@@ -20,6 +21,19 @@
 
         <!--Dimen-->
         <activity android:name="com.dewarder.katanatest.dimen.TestDimenActivity"/>
+        <activity android:name="com.dewarder.katanatest.dimen.ViewDimenTest$Activity"/>
+        <activity android:name="com.dewarder.katanatest.dimen.FragmentDimenTest$Activity"/>
+        <activity android:name="com.dewarder.katanatest.dimen.SupportFragmentDimenTest$Activity"/>
+        <activity android:name="com.dewarder.katanatest.dimen.DialogDimenTest$Activity"/>
+        <activity android:name="com.dewarder.katanatest.dimen.ContextProviderDimenTest$Activity"/>
+
+        <!--Integer-->
+        <activity android:name=".integer.TestIntegerActivity"/>
+        <activity android:name=".integer.ViewIntegerTest$Activity"/>
+        <activity android:name=".integer.FragmentIntegerTest$Activity"/>
+        <activity android:name=".integer.SupportFragmentIntegerTest$Activity"/>
+        <activity android:name=".integer.DialogIntegerTest$Activity"/>
+        <activity android:name=".integer.ContextProviderIntegerTest$Activity"/>
     </application>
 
 </manifest>
