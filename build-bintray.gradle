@@ -3,6 +3,8 @@ apply plugin: 'com.jfrog.bintray'
 
 apply from: '../build-project-info.gradle'
 
+version = artifactVersion
+
 install {
     repositories.mavenInstaller {
         pom {

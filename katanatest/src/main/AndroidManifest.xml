@@ -34,6 +34,14 @@
         <activity android:name=".integer.SupportFragmentIntegerTest$Activity"/>
         <activity android:name=".integer.DialogIntegerTest$Activity"/>
         <activity android:name=".integer.ContextProviderIntegerTest$Activity"/>
+
+        <!--String-->
+        <activity android:name=".string.TestStringActivity"/>
+        <activity android:name=".string.ViewStringTest$Activity"/>
+        <activity android:name=".string.FragmentStringTest$Activity"/>
+        <activity android:name=".string.SupportFragmentStringTest$Activity"/>
+        <activity android:name=".string.DialogStringTest$Activity"/>
+        <activity android:name=".string.ContextProviderStringTest$Activity"/>
     </application>
 
 </manifest>

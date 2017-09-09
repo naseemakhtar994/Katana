@@ -16,20 +16,20 @@ compile 'com.dewarder:katana:1.0.0'
 
 ```kotlin
 //views
-val myBeutyView: BeautyView by view(R.id.buety_vieww)
+val myBeautyView: BeautyView by view(R.id.beauty_view)
 val myImage: ImageView by view(R.id.my_image)
 val labels: List<BeutyLabel> by views(R.id.top_label, R.id.bottom_label)
     
 //drawable
-val myBeutyViewBackground by drawable(R.drawable.beuty_background)
+val myBeautyViewBackground by drawable(R.drawable.beauty_background)
 val myImage by bitmap(R.drawable.beuty_image)
     
 //strings
 val serverErrorMessage by string(R.string.message_server_error)
     
 //dimens
-val myBeutyViewHeight by dimen(R.dimen.beuty_view_height)
-val myBeutyViewTestSize by dimen(R.dimen.beuty_view_text_size, DimensionType.SP)
+val myBeutyViewHeight by dimen(R.dimen.beauty_view_height)
+val myBeutyViewTestSize by dimen(R.dimen.beauty_view_text_size, DimensionType.SP)
     
 //ints
 val animationDuration by integer(R.integer.fade_in_animation_duration)
