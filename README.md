@@ -17,19 +17,19 @@ compile 'com.dewarder:katana:1.0.0'
 ```kotlin
 //views
 val myBeautyView: BeautyView by view(R.id.beauty_view)
-val myImage: ImageView by view(R.id.my_image)
-val labels: List<BeutyLabel> by views(R.id.top_label, R.id.bottom_label)
+val myImage: ImageView? by viewOptional(R.id.my_image)
+val labels: List<BeautyLabel> by views(R.id.top_label, R.id.bottom_label)
     
 //drawable
 val myBeautyViewBackground by drawable(R.drawable.beauty_background)
-val myImage by bitmap(R.drawable.beuty_image)
+val myImage by bitmap(R.drawable.beauty_image)
     
 //strings
 val serverErrorMessage by string(R.string.message_server_error)
     
 //dimens
-val myBeutyViewHeight by dimen(R.dimen.beauty_view_height)
-val myBeutyViewTestSize by dimen(R.dimen.beauty_view_text_size, DimensionType.SP)
+val myBeautyViewHeight by dimen(R.dimen.beauty_view_height)
+val myBeautyViewTestSize by dimen(R.dimen.beauty_view_text_size, DimensionType.SP)
     
 //ints
 val animationDuration by integer(R.integer.fade_in_animation_duration)
@@ -58,11 +58,13 @@ Library supports:
 - `Animations`
 
 into:
-- `Actvitiy`
+- `Activity`
 - `Fragment` (default and support)
 - `Dialog`
 - `View`
 - `Paste your classname here`
+
+Also there is support of multiply and nullable resources (`viewOptional`, `views`, `viewsOptional`)
 
 As said, it works everywhere. If it isn't standard Android component just implement `ViewFinderProvider` for view binding or/and `ContextProvider` for resource binding.
 
@@ -75,7 +77,7 @@ class MyClass(val external: View) : ViewFinderProvider {
     override fun provideViewFinder() = external::findViewById
 }
 
-class MySecondClass(val context: Context) : ContexrProvider {
+class MySecondClass(val context: Context) : ContextProvider {
     override fun provideContext() = context
 }
 ```
